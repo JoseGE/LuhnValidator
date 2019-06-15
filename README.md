@@ -14,7 +14,7 @@ The LuhnValidator is based in the Luhn algorithm to validate the number of an Id
 2. Search for LuhnValidation
 3. Install
 
-> See more about current version [here](https://www.nuget.org/packages/LuhnValidator/). 
+> ``Install-Package LuhnValidator -Version 1.0.0``
 
 ## Creating an instance of the class
 
