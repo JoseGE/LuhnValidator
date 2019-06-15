@@ -21,4 +21,4 @@ After creating the object the way to validate the id number is the following
 
 With the number to verify as the parameter of the method as a string.The method returns true if the idcard is valid and false if is not.
 
-> For more information: (Blog)['https://medium.com/@arielcruz07/nuget-para-el-algororitmo-de-luhn-2b22e9369be0']
+> For more information visit: [Blog](https://medium.com/@arielcruz07/nuget-para-el-algororitmo-de-luhn-2b22e9369be0)
