@@ -50,5 +50,26 @@ namespace LuhnTest
             Assert.IsTrue(!result);
         }
 
+        [TestMethod]
+        public void ValidateIdCard_RealIdCardDominicanRepublic_True()
+        {
+            var card = "79927398713";
+
+            var luhn = new IdCardValidator();
+            var result = luhn.ValidateIdCard(card, "DO");
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ValidateIdCard_InvalidIdCardDominicanRepublic_True()
+        {
+            var card = "79927398712";
+
+            var luhn = new IdCardValidator();
+            var result = luhn.ValidateIdCard(card, "DO");
+
+            Assert.IsTrue(!result);
+        }
     }
 }
