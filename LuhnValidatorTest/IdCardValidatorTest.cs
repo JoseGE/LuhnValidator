@@ -27,5 +27,28 @@ namespace LuhnTest
 
             Assert.IsTrue(!result);
         }
+
+        [TestMethod]
+        public void ValidateCreditCard_RealCreditCard_True()
+        {
+            var card = "4895-5862-5767-7086";
+
+            var luhn = new IdCardValidator();
+            var result = luhn.ValidateCreditCard(card);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ValidateCreditCard_InvalidCreditCard_False()
+        {
+            var card = "8360-7135-3409-0648";
+
+            var luhn = new IdCardValidator();
+            var result = luhn.ValidateCreditCard(card);
+
+            Assert.IsTrue(!result);
+        }
+
     }
 }
