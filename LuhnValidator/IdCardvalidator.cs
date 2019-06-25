@@ -46,7 +46,7 @@ namespace LuhnValidator
             if (!isValidCountryISO)
                 return false;
 
-            string card = default;
+            string card = "";
 
             foreach (var character in cardNumber)
                 if (int.TryParse(character.ToString(), out int isNumber))
@@ -77,7 +77,7 @@ namespace LuhnValidator
 
         public bool ValidateCreditCard(string cardNumbers)
         {
-            string card = default;
+            string card = "";
 
             foreach(var character in cardNumbers)
                 if (int.TryParse(character.ToString(), out int isNumber))
