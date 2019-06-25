@@ -47,7 +47,7 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: 'push'
-    packagesToPush: 'LuhnValidator/bin/Debug/LuhnValidator.1.0.1.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    packagesToPush: 'LuhnValidator/bin/Debug/LuhnValidator.1.0.1.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'MyNugetPackage'
 
