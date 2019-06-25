@@ -37,7 +37,7 @@ steps:
   displayName: 'NuGet package'
   inputs:
     command: pack
-    packagesToPack: '$(Build.ArtifactStagingDirectory)/LuhnValidator/*.csproj'
+    packagesToPack: 'LuhnValidator/*.csproj'
     versioningScheme: byPrereleaseNumber
     majorVersion: '1'
     minorVersion: '0'
@@ -47,7 +47,7 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/LuhnValidator/bin/Debug/LuhnValidator.1.0.1.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    packagesToPush: 'LuhnValidator/bin/Debug/LuhnValidator.1.0.1.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'MyNugetPackage'
 
