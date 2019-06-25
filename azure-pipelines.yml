@@ -33,21 +33,24 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: NuGetCommand@2
+# - task: NuGetCommand@2
+#   displayName: 'NuGet package'
+#   inputs:
+#     command: pack
+#     packagesToPack: '$(Build.ArtifactStagingDirectory)/LuhnValidator/*.csproj'
+#     versioningScheme: byPrereleaseNumber
+#     majorVersion: '1'
+#     minorVersion: '0'
+#     patchVersion: '1' 
+
+- script: "dotnet pack -p:Version=1.0.1 -o:$(Build.ArtifactStagingDirectory)/LuhnValidator/LuhnValidator.csproj"
   displayName: 'NuGet package'
-  inputs:
-    command: pack
-    packagesToPack: 'LuhnValidator/*.csproj'
-    versioningScheme: byPrereleaseNumber
-    majorVersion: '1'
-    minorVersion: '0'
-    patchVersion: '1' 
 
 - task: NuGetCommand@2
   displayName: 'NuGet push'
   inputs:
     command: 'push'
-    packagesToPush: 'LuhnValidator/bin/Debug/LuhnValidator.1.0.1.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/LuhnValidator/bin/Debug/LuhnValidator.1.0.1.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'MyNugetPackage'
 
