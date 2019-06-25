@@ -54,7 +54,6 @@ steps:
 #     nuGetFeedType: 'external'
 #     publishFeedCredentials: 'MyNugetPackage'
 
-- script: $(NUGET_KEY)
 - script: "dotnet nuget push LuhnValidator\\bin\\Debug\\LuhnValidator.1.0.1.nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
   displayName: 'NuGet package'
 
