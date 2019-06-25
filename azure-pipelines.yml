@@ -37,7 +37,7 @@ steps:
   displayName: 'NuGet package'
   inputs:
     command: pack
-    packagesToPack: 'LuhnValidator/*.csproj'
+    packagesToPack: '$(Build.ArtifactStagingDirectory)/LuhnValidator/*.csproj'
 
 - task: NuGetCommand@2
   displayName: 'NuGet push'
