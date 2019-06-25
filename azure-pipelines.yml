@@ -43,7 +43,7 @@ steps:
 #     minorVersion: '0'
 #     patchVersion: '1' 
 
-- script: "dotnet pack -p:Version=1.0.1 -o:$(Build.ArtifactStagingDirectory)/LuhnValidator/LuhnValidator.csproj"
+- script: "dotnet pack -p:Version=1.0.1"
   displayName: 'NuGet package'
 
 - task: NuGetCommand@2
