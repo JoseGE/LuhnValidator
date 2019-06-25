@@ -46,11 +46,15 @@ steps:
 - script: "dotnet pack -p:Version=1.0.1"
   displayName: 'NuGet package'
 
-- task: NuGetCommand@2
-  displayName: 'NuGet push'
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/LuhnValidator/bin/Debug/LuhnValidator.1.0.1.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'MyNugetPackage'
+# - task: NuGetCommand@2
+#   displayName: 'NuGet push'
+#   inputs:
+#     command: 'push'
+#     packagesToPush: '$(Build.ArtifactStagingDirectory)/LuhnValidator/bin/Debug/LuhnValidator.1.0.1.nupkg'
+#     nuGetFeedType: 'external'
+#     publishFeedCredentials: 'MyNugetPackage'
+
+- script: $(NUGET_KEY)
+- script: "dotnet nuget push LuhnValidator\\bin\\Debug\\LuhnValidator.1.0.1.nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
+  displayName: 'NuGet package'
 
