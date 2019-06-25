@@ -33,9 +33,13 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- script: echo "Nuget command will run"
+- script: echo $(Build.ArtifactStagingDirectory)
+- script: echo $(build.artifactStagingDirectory)
 - task: NuGetCommand@2
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'MyNugetPackage'
+
