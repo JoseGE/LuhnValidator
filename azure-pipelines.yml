@@ -48,14 +48,9 @@ steps:
 
 - bash: |
     versionTag=`git tag` 
+    versionTag=$(echo ${versionTag:1:5})
     echo "##vso[task.setvariable variable=VERSION_TAG]$versionTag"
   displayName: 'Setting Version'
-
-- bash: |
-    SHELL_VAR="v1.0.3-33ds"
-    var=$(echo ${SHELL_VAR:1:5})
-    echo $var
-  displayName: 'Prueba'
 
 - script: "dotnet pack -p:Version=$(VERSION_TAG)"
   displayName: 'Nuget package'
