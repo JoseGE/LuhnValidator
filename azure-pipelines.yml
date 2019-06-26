@@ -52,8 +52,8 @@ steps:
   displayName: 'Setting Version'
 
 - bash: |
-    SHELL_VAR="PL/SQL procedure successfully completed. ERROR ----------------------------------------------------------------- Test Error Message PLUSVAR ---------- 1"
-    var=$(echo ${SHELL_VAR} | sed 's/.*--//')
+    SHELL_VAR="v1.0.3-33ds"
+    var=$(echo ${SHELL_VAR:1:5})
     echo $var
   displayName: 'Prueba'
 
