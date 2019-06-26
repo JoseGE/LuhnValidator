@@ -43,18 +43,20 @@ steps:
 #     majorVersion: '1'
 #     minorVersion: '0'
 #     patchVersion: '1' 
-- script: $(versionTag)
-  displayName: 'NN1'
+# - script: $(versionTag)
+#   displayName: 'NN1'
 
 # - bash: |
-#     echo "##vso[task.setvariable variable=versionTag]$()"
+#     echo '##vso[task.setvariable variable=a]20'
 #   displayName: 'Nuget push '
 
 # - script: $(versionTag)
 #   displayName: 'NN'
 
-# - script: "dotnet pack -p:Version=1.0.1"
-#   displayName: 'NuGet package'
+- bash: |
+    "dotnet pack -p:Version=$(versionTag)"
+    "dotnet nuget push LuhnValidator\\bin\\Debug\\LuhnValidator.$(versionTag).nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
+  displayName: 'NuGet package'
 
 # - task: NuGetCommand@2
 #   displayName: 'NuGet push'
