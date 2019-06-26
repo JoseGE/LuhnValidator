@@ -44,15 +44,10 @@ steps:
 #     minorVersion: '0'
 #     patchVersion: '1' 
 
-- script: |
-    echo 'starting'
-    echo 'init'
-    output=$(`git tag`)
-    echo output
-    echo "##vso[task.setvariable variable=VERSION_TAG]$output"
+- script: echo "##vso[task.setvariable variable=versionTag]${{ git tag }}"
   displayName: 'Nuget push '
 
-- script: "git tag"
+- script: $(versionTag)
   displayName: 'NN'
 
 # - script: "dotnet pack -p:Version=1.0.1"
