@@ -43,8 +43,12 @@ steps:
 #     minorVersion: '0'
 #     patchVersion: '1' 
 
-- script: "dotnet pack -p:Version=1.0.1"
-  displayName: 'NuGet package'
+- script: VERSION_TAG=`git describe --tags` &&
+          echo "Show tag $(VERSION_TAG)"
+  displayName: 'Nuget push '
+
+# - script: "dotnet pack -p:Version=1.0.1"
+#   displayName: 'NuGet package'
 
 # - task: NuGetCommand@2
 #   displayName: 'NuGet push'
@@ -54,6 +58,6 @@ steps:
 #     nuGetFeedType: 'external'
 #     publishFeedCredentials: 'MyNugetPackage'
 
-- script: "dotnet nuget push LuhnValidator\\bin\\Debug\\LuhnValidator.1.0.1.nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
-  displayName: 'NuGet push'
+# - script: "dotnet nuget push LuhnValidator\\bin\\Debug\\LuhnValidator.1.0.1.nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
+#   displayName: 'NuGet push'
 
