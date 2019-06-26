@@ -48,9 +48,9 @@ steps:
     echo 'starting'
     echo 'init'
     set $myVar=`git tag`
-    set $myVar2="git tag"
-    echo $($myVar)
-    echo $($myVar2)
+    set myVar2="git tag"
+    echo "git tag"
+    echo $(myVar2)
     echo "##vso[task.setvariable variable=versionTag]$myVar"
   displayName: 'Nuget push '
 
