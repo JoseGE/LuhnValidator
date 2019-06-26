@@ -51,9 +51,11 @@ steps:
     echo "##vso[task.setvariable variable=VERSION_TAG]$versionTag"
   displayName: 'Setting Version'
 
-- script: echo $(VERSION_TAG[0])
-  displayName: 'Trying'
-
+- bash: |
+    SHELL_VAR="PL/SQL procedure successfully completed. ERROR ----------------------------------------------------------------- Test Error Message PLUSVAR ---------- 1"
+    var=$(echo ${SHELL_VAR} | sed 's/.*--//')
+    echo $var
+  displayName: 'Prueba'
 
 - script: "dotnet pack -p:Version=$(VERSION_TAG)"
   displayName: 'Nuget package'
