@@ -51,10 +51,10 @@ steps:
     echo "##vso[task.setvariable variable=VERSION_TAG]$versionTag"
   displayName: 'Setting Version'
 
-- script: |
-    echo 'Updating nuget package'
-    "dotnet pack -p:Version=$(VERSION_TAG) -o $(Build.ArtifactStagingDirectory)"
-    "dotnet nuget push $(Build.ArtifactStagingDirectory)\\LuhnValidator\\bin\\Debug\\LuhnValidator.$(VERSION_TAG).nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
+- script: "dotnet pack -p:Version=$(VERSION_TAG)"
+  displayName: 'Nuget package'
+
+- script: "dotnet nuget push LuhnValidator\\bin\\Debug\\LuhnValidator.$(VERSION_TAG).nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
   displayName: 'Nuget push'
 
 # - bash: |
