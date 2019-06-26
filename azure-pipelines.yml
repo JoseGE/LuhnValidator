@@ -44,6 +44,7 @@ steps:
 #     patchVersion: '1' 
 
 - script: VERSION_TAG=`git describe --tags` &&
+          task.setvariable variable=VERSION_TAG]$VERSION_TAG &&
           echo "Show tag $(VERSION_TAG)"
   displayName: 'Nuget push '
 
