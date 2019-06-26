@@ -13,7 +13,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  versionTag: ''
+  versionTag: 'git tag'
 
 steps:
 - task: NuGetToolInstaller@0
@@ -43,8 +43,10 @@ steps:
 #     majorVersion: '1'
 #     minorVersion: '0'
 #     patchVersion: '1' 
+- script: $(versionTag)
+  displayName: 'NN1'
 
-- script: echo "##vso[task.setvariable variable=versionTag]${{ `git tag` }}"
+- script: echo "##vso[task.setvariable variable=versionTag]${{ "git tag" }}"
   displayName: 'Nuget push '
 
 - script: $(versionTag)
