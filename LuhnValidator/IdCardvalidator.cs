@@ -5,6 +5,7 @@ namespace LuhnValidator
 {
     public class IdCardValidator
     {
+        //My private dict
         private readonly Dictionary<string, int> countries;
 
         public IdCardValidator()
