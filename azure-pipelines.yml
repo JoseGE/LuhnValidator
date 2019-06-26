@@ -53,8 +53,8 @@ steps:
 
 - script: |
     echo 'Updating nuget package'
-    "dotnet pack -p:Version=$(VERSION_TAG)"
-    "dotnet nuget push LuhnValidator\\bin\\Debug\\LuhnValidator.$(VERSION_TAG).nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
+    "dotnet pack -p:Version=$(VERSION_TAG) -o $(Build.ArtifactStagingDirectory)"
+    "dotnet nuget push $(Build.ArtifactStagingDirectory)\\LuhnValidator\\bin\\Debug\\LuhnValidator.$(VERSION_TAG).nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
   displayName: 'Nuget push'
 
 # - bash: |
