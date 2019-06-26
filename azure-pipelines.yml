@@ -44,7 +44,9 @@ steps:
 #     minorVersion: '0'
 #     patchVersion: '1' 
 
-- script: 
+- script: |
+    echo 'starting'
+    echo 'init'
     set $myVar=`git tag`
     set $myVar2="git tag"
     echo $myVar
