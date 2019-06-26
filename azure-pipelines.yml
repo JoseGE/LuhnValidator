@@ -45,7 +45,7 @@ steps:
 #     patchVersion: '1' 
 
 - script: 
-    $myVar = `git tag`
+    set $myVar=`git tag`
     echo "##vso[task.setvariable variable=versionTag]myVar"
   displayName: 'Nuget push '
 
