@@ -46,17 +46,18 @@ steps:
 # - script: $(versionTag)
 #   displayName: 'NN1'
 
-# - bash: |
-#     echo '##vso[task.setvariable variable=a]20'
-#   displayName: 'Nuget push '
+- bash: |
+    VERSION_TAG=`git describe --tags` 
+    echo "##vso[task.setvariable variable=VERSION_TAG]$VERSION_TAG"
+  displayName: 'Nuget push '
 
 # - script: $(versionTag)
 #   displayName: 'NN'
 
-- bash: |
-    "dotnet pack -p:Version=$(versionTag)"
-    "dotnet nuget push LuhnValidator\\bin\\Debug\\LuhnValidator.$(versionTag).nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
-  displayName: 'NuGet package'
+# - bash: |
+#     "dotnet pack -p:Version=$(versionTag)"
+#     "dotnet nuget push LuhnValidator\\bin\\Debug\\LuhnValidator.$(versionTag).nupkg -k $(NUGET_KEY) -s https://api.nuget.org/v3/index.json"
+#   displayName: 'NuGet package'
 
 # - task: NuGetCommand@2
 #   displayName: 'NuGet push'
