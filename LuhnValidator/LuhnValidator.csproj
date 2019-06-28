@@ -1,11 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <iconUrl>https://github.com/JoseGE/LuhnValidator/blob/master/icon.png</iconUrl>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RuntimeIdentifiers>win7-x64;osx.10.11-x64;ubuntu.16.04-x64</RuntimeIdentifiers>
     <RuntimeFrameworkVersion>2.2.3</RuntimeFrameworkVersion>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <Authors>Jordy Mateo, Roberto Herasme, Tomas Familia, David Pelaez, Jose Escoboso, Richard Cruz</Authors>
+    <Company>TendenciasCompany</Company>
+    <Description>The LuhnValidator is based in the Luhn algorithm to validate the number of an Identification Card.</Description>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <PackageIconUrl>https://github.com/JoseGE/LuhnValidator/blob/master/icon.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>github.com/jordymateo/LuhnValidator</RepositoryUrl>
+    <PackageTags>credit card dni validator cedula validador</PackageTags>
+    <Copyright>Team Tendencias Company</Copyright>
   </PropertyGroup>
-
+    <ItemGroup>
+    <None Include="https://github.com/JoseGE/LuhnValidator/blob/master/License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
